@@ -16,7 +16,7 @@ clean:
 	rm -rf rr
 	rm -rf priority
 	rm -rf priority_rr
-
+ 
 rr: driver.o list.o CPU.o schedule_rr.o
 	$(CC) $(CFLAGS) -o rr driver.o schedule_rr.o list.o CPU.o
 

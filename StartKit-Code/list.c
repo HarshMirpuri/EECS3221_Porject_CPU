@@ -13,11 +13,24 @@
 // add a new task to the list of tasks
 void insert(struct node **head, Task *newTask) {
     // add the new task to the list 
+    struct node *temp;
     struct node *newNode = malloc(sizeof(struct node));
 
     newNode->task = newTask;
-    newNode->next = *head;
-    *head = newNode;
+    newNode->next = NULL;
+    if (*head == NULL)
+    {
+        *head = newNode; //when linked list is empty
+    }
+    else
+    {
+        temp = *head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next; //traverse the list until p is the last node.The last node always points to NULL.
+        }
+        temp->next = newNode; //Point the previous last node to the new node created.
+    }
 }
 
 // delete the selected task from the list
