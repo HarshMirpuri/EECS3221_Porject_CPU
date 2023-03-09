@@ -97,7 +97,7 @@ void schedule()
     while (temp != NULL)
     {
         run(temp->task, temp->task->burst);
-        wait_time[wait_count++] = task_wait_time;
+        wait_time[wait_count++] = task_waiting_time;
         task_waiting_time += (temp->task->burst);
         delete (&temp, temp->task);
     }
